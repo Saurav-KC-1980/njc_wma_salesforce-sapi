@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="retrievedata_basedon_id" doc:id="664f45f8-8c21-4e23-82e7-a17673d838e9" >
+		<http:listener doc:name="/test/{id}" doc:id="f5c74ac9-9f55-41be-837d-b9bab5cb29b2" config-ref="HTTP_Listener_config" path="/test/{Id}"/>
+		<logger level="INFO" doc:name="Initial Logger" doc:id="1fb0a8a2-c3c7-4ad7-80c1-315e28102703" message="Start of a Logger"/>
+		<salesforce:query doc:name="Querying to retrieve client details" doc:id="ab138553-4d7f-4042-9e70-45ce2f417d91" config-ref="Salesforce_Config">
+			<salesforce:salesforce-query ><![CDATA[SELECT AccountNumber,AccountSource,Account_Added_to_DB__c,Agency_Code__c,AnnualRevenue,BillingAddress,BillingCity,BillingCountry,BillingGeocodeAccuracy,BillingLatitude,BillingLongitude,BillingPostalCode,BillingState,BillingStreet,CreatedById,CreatedDate,Description,et4ae5__HasOptedOutOfMobile__pc,et4ae5__Mobile_Country_Code__pc,Fax,FinServ__Affiliations__pc,FinServ__AgeAsText__pc,FinServ__Age__pc,FinServ__AnnualIncome__pc,FinServ__AUM__c,FinServ__BankNumber__c,FinServ__BillingAddress__pc,FinServ__BorrowingHistory__c,FinServ__BorrowingPriorities__c,FinServ__BranchCode__c,FinServ__BranchName__c,FinServ__Citizenship__pc,FinServ__ClientCategory__c,FinServ__CommunicationPreferences__pc,FinServ__ContactPreference__pc,FinServ__ConversionDateTime__c,FinServ__CountryOfBirth__pc,FinServ__CountryOfResidence__pc,FinServ__CreatedFromLead__pc,FinServ__CreditRating__c,FinServ__CreditScore__c,FinServ__CurrentEmployer__pc,FinServ__CustomerID__c,FinServ__CustomerSegment__c,FinServ__CustomerTimezone__pc,FinServ__CustomerType__c,FinServ__EmailVerified__pc,FinServ__EmployedSince__pc,FinServ__Facebook__pc,FinServ__FaxVerified__pc,FinServ__FinancialInterests__c,FinServ__Gender__pc,FinServ__HomeOwnership__pc,FinServ__HomePhoneVerified__pc,FinServ__IndividualId__c,FinServ__IndividualId__pc,FinServ__IndividualType__c,FinServ__IndividualType__pc,FinServ__InvestmentExperience__c,FinServ__InvestmentObjectives__c,FinServ__KYCDate__c,FinServ__KYCStatus__c,FinServ__LanguagesSpoken__pc,FinServ__LastFourDigitSSN__pc,FinServ__LastInteraction__c,FinServ__LastReview__c,FinServ__LastTransactionDateJointOwner__c,FinServ__LastTransactionDatePrimaryOwner__c,FinServ__LastTransactionDate__c,FinServ__LastUsedChannel__c,FinServ__LengthOfRelationship__c,FinServ__LifetimeValue__c,FinServ__LinkedIn__pc,FinServ__MailingAddress__pc,FinServ__MaritalStatus__pc,FinServ__MarketingOptOut__pc,FinServ__MarketingSegment__c,FinServ__MobileVerified__pc,FinServ__MostUsedChannel__pc,FinServ__MotherMaidenName__pc,FinServ__NetWorth__c,FinServ__NextInteraction__c,FinServ__NextLifeEvent__pc,FinServ__NextReview__c,FinServ__Notes__c,FinServ__NumberOfChildren__pc,FinServ__NumberOfDependents__pc,FinServ__Occupation__pc,FinServ__OtherAddress__pc,FinServ__PersonalInterests__c,FinServ__PreferredName__pc,FinServ__PrimaryAddressIsBilling__pc,FinServ__PrimaryAddressIsMailing__pc,FinServ__PrimaryAddressIsOther__pc,FinServ__PrimaryAddressIsShipping__pc,FinServ__PrimaryCitizenship__pc,FinServ__PrimaryContact__c,FinServ__PrimaryLanguage__pc,FinServ__ReferredByContact__c,FinServ__ReferredByContact__pc,FinServ__ReferredByUser__c,FinServ__ReferredByUser__pc,FinServ__ReferrerScore__pc,FinServ__RelationshipStartDate__c,FinServ__ReviewFrequency__c,FinServ__RiskTolerance__c,FinServ__SecondaryCitizenship__pc,FinServ__SecondaryLanguage__pc,FinServ__ServiceModel__c,FinServ__ShippingAddress__pc,FinServ__SourceSystemId__c,FinServ__SourceSystemId__pc,FinServ__Status__c,FinServ__TaxBracket__pc,FinServ__TaxId__pc,FinServ__TimeHorizon__c,FinServ__TotalAUMJointOwner__c,FinServ__TotalAUMPrimaryOwner__c,FinServ__TotalBankDepositsJointOwner__c,FinServ__TotalBankDepositsPrimaryOwner__c,FinServ__TotalBankDeposits__c,FinServ__TotalFinAcctsJointOwner__c,FinServ__TotalFinAcctsPrimaryOwner__c,FinServ__TotalFinancialAccounts__c,FinServ__TotalHeldFinAcctsJointOwner__c,FinServ__TotalHeldFinAcctsPrimaryOwner__c,FinServ__TotalInsuranceJointOwner__c,FinServ__TotalInsurancePrimaryOwner__c,FinServ__TotalInsurance__c,FinServ__TotalInvestmentsJointOwner__c,FinServ__TotalInvestmentsPrimaryOwner__c,FinServ__TotalInvestments__c,FinServ__TotalLiabilitiesJointOwner__c,FinServ__TotalLiabilitiesPrimaryOwner__c,FinServ__TotalLiabilities__c,FinServ__TotalNonfinancialAssetsJointOwner__c,FinServ__TotalNonfinancialAssetsPrimaryOwner__c,FinServ__TotalNonfinancialAssets__c,FinServ__TotalNumberOfFinAccountsJointOwner__c,FinServ__TotalNumberOfFinAccountsPrimaryOwner__c,FinServ__TotalNumberOfFinAccounts__c,FinServ__TotalOutstandingCreditJointOwner__c,FinServ__TotalOutstandingCreditPrimaryOwner__c,FinServ__TotalOutstandingCredit__c,FinServ__TotalPremium__c,FinServ__TotalRevenue__c,FinServ__Twitter__pc,FinServ__WalletShare__c,FinServ__WeddingAnniversary__pc,FirstName,Id,Industry,IsDeleted,IsPersonAccount,Jigsaw,JigsawCompanyId,LastActivityDate,LastModifiedById,LastModifiedDate,LastName,LastReferencedDate,LastViewedDate,MasterRecordId,MiddleName,Name,NumberOfEmployees,OperatingHoursId,OwnerId,Ownership,ParentId,PersonAssistantName,PersonAssistantPhone,PersonBirthdate,PersonContactId,PersonDepartment,PersonDoNotCall,PersonEmail,PersonEmailBouncedDate,PersonEmailBouncedReason,PersonHasOptedOutOfEmail,PersonHasOptedOutOfFax,PersonHomePhone,PersonIndividualId,PersonLastCURequestDate,PersonLastCUUpdateDate,PersonLeadSource,PersonMailingAddress,PersonMailingCity,PersonMailingCountry,PersonMailingGeocodeAccuracy,PersonMailingLatitude,PersonMailingLongitude,PersonMailingPostalCode,PersonMailingState,PersonMailingStreet,PersonMobilePhone,PersonOtherAddress,PersonOtherCity,PersonOtherCountry,PersonOtherGeocodeAccuracy,PersonOtherLatitude,PersonOtherLongitude,PersonOtherPhone,PersonOtherPostalCode,PersonOtherState,PersonOtherStreet,PersonTitle,Phone,PhotoUrl,Rating,RecordTypeId,Salutation,ShippingAddress,ShippingCity,ShippingCountry,ShippingGeocodeAccuracy,ShippingLatitude,ShippingLongitude,ShippingPostalCode,ShippingState,ShippingStreet,Sic,SicDesc,Site,Suffix,SystemModstamp,TickerSymbol,Type 
+FROM Account 
+WHERE Id=':Id']]></salesforce:salesforce-query>
+			<salesforce:parameters ><![CDATA[#[output application/java
+---
+{
+	"Id" : attributes.uriParams.Id
+}]]]></salesforce:parameters>
+		</salesforce:query>
+		<ee:transform doc:name="into json" doc:id="dfadae4d-8d33-4c40-88a0-9f2d82cfaac5" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json skipNullOn="everywhere"
+---
+payload map(payload,payload01)->
+{
+    "clientDetails":{
+    "personalDetails":{
+		"id":payload.Id,
+		"firstName":payload.FirstName,
+		"middleName":payload.MiddleName,
+		"lastName":payload.LastName,
+		"name":payload.Name,
+		"phone": payload.Phone ,
+		"homePhone": payload.PersonHomePhone,
+		"personMobilePhone":payload.PersonMobilePhone,
+		"personEmail":payload.PersonEmail,
+		"birthDate":payload.PersonBirthdate,
+		"maritalStatus":payload.FinServ__MaritalStatus__pc,
+		"languagesSpoken":payload.FinServ__LanguagesSpoken__pc,
+		"weddingAnniversary":payload.FinServ__WeddingAnniversary__pc,
+		"contactId":payload.PersonContactId,
+		"ssnLastFourDigit":payload.FinServ__LastFourDigitSSN__pc,
+		"primaryCitizenship":payload.FinServ__PrimaryCitizenship__pc,
+		"secondaryCitizenship": payload.FinServ__SecondaryCitizenship__pc,
+		"personalInterests":payload.FinServ__PersonalInterests__c,
+		"contactPreference": payload.FinServ__ContactPreference__pc,
+		"customerTimezone":payload.FinServ__CustomerTimezone__pc,
+		"currentEmployer": payload.FinServ__CurrentEmployer__pc,
+		"clientCategory":payload.FinServ__ClientCategory__c,
+    },
+    "addresses":{
+		"mailingAddress":payload.FinServ__MailingAddress__pc,
+		"billingAddress":payload.BillingAddress,
+		"shippingAddress":payload.ShippingAddress,
+		"personOtherPostalCode":payload.PersonOtherPostalCode,
+    },
+    "financialDetails":{
+		"type": payload."type",
+		"recordTypeId":payload.RecordTypeId,
+		"ownerId":payload.OwnerId,
+		"agencyCode":payload.Agency_Code__c,
+		"lastTransactionDate":payload.FinServ__LastTransactionDate__c,
+		"financialInterests":payload.FinServ__FinancialInterests__c,
+		"numberOfAccounts":payload.FinServ__TotalNumberOfFinAccounts__c,
+		"annualIncome":payload.FinServ__AnnualIncome__pc,
+		"totalRevenue": payload.FinServ__TotalRevenue__c,
+		"totalInvestments":payload.FinServ__TotalInvestments__c,
+		"totalBankDeposits":payload.FinServ__TotalBankDeposits__c,
+		"walletShare":payload.FinServ__WalletShare__c,
+		"kycStatus":payload.FinServ__KYCStatus__c,
+		"kycDate":payload.FinServ__KYCDate__c,
+		"assetsUnderManagement":payload.FinServ__AUM__c,
+		"totalLiabilities":payload.FinServ__TotalLiabilities__c,
+		"totalInsurance": payload.FinServ__TotalInsurance__c,
+		"totalInsurancePrimaryOwner":payload.FinServ__TotalInsurancePrimaryOwner__c,
+		"primaryownerTotalAum":payload.FinServ__TotalAUMPrimaryOwner__c,
+		"primaryOwnerbankDeposits":payload.FinServ__TotalBankDepositsPrimaryOwner__c,
+		"totalFinancialAccountsprimaryowner":payload.FinServ__TotalFinAcctsPrimaryOwner__c,
+		"totalHeldFinancialAccountsPrimaryowner":payload.totalHeldFinancialAccountsPrimaryowner,
+		"primaryOwnerTotalLiabilities":payload.FinServ__TotalInvestmentsPrimaryOwner__c,
+		"totalnumberoffinancialaccountsPrimaryowner":payload.FinServ__TotalNumberOfFinAccountsPrimaryOwner__c,
+		"primaryOwnerTotalNonfinancialAssets":payload.FinServ__TotalNonfinancialAssetsPrimaryOwner__c,  
+		"primaryOwnerTotalInvestments":payload.FinServ__TotalInvestmentsPrimaryOwner__c  ,
+		"totalnumberoffinancialaccountsJointowner":payload.FinServ__TotalNumberOfFinAccountsJointOwner__c,
+		"jointOwnerTotalLiabilities":payload.FinServ__TotalLiabilitiesJointOwner__c    
+    }      
+  }
+}
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Logger" doc:id="d677b33a-038a-45be-b723-10000140aca0" message="Logger Ends"/>
+	</flow>
+	<flow name="wm_updatedata" doc:id="5f4ea2d3-44a0-4c25-908f-2d725519cb2a" >
+		<logger level="INFO" doc:name="Start Logger" doc:id="e70f60fb-4750-443e-b6be-5ce2c538452a" message="Start of a logger"/>
+		<salesforce:update doc:name="Updating accountdetails" doc:id="69757a76-043d-40ca-967e-042b9d64cc48" config-ref="Salesforce_Config" type="Account"/>
+		<ee:transform doc:name="Transform Message" doc:id="ff66b448-cf59-48a3-93cb-c2c8d7e394b6" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"Message" : "Data updated successfully"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End Logger" doc:id="d0249eb0-5846-4674-923e-4bba8b4e2d96" message="End of  a logger"/>
+	</flow>
+	<flow name="njc_wma_retrieveassetlFlow" doc:id="2757aee6-1c56-4906-a743-a53de7890386" >
+		<logger level="INFO" doc:name="Initial" doc:id="7aa40d81-c71d-4f38-8cf1-d04198f71fe6" message="Start logger" />
+		<salesforce:query doc:name="Query to retrieve asset" doc:id="9d5b956d-c435-4884-8df3-50d455efcc20" config-ref="Salesforce_Config" >
+			<salesforce:salesforce-query ><![CDATA[SELECT FinServ__PrimaryOwner__r.Name,FinServ__FinancialAccount__c,FinServ__PrimaryOwner__c,RecordTypeId,RecordType.Name,FinServ__Household__r.Name,FinServ__Household__c,FinServ__JointOwner__c,FinServ__JointOwner__r.Name,FinServ__AssetsandLiabilitiesType__c,FinServ__Ownership__c,FinServ__Amount__c,Name,Id,FinServ__Description__c,FinServ__OwnerType__c,FinServ__SourceSystemId__c,LastModifiedDate,LastReferencedDate,LastViewedDate,OwnerId FROM FinServ__AssetsAndLiabilities__c Where (FinServ__PrimaryOwner__c=':FinServ__PrimaryOwner__c' or FinServ__JointOwner__c=':FinServ__JointOwner__c') and RecordType.Name='Asset' ]]></salesforce:salesforce-query>
+			<salesforce:parameters ><![CDATA[#[output application/java
+---
+{
+	"FinServ__PrimaryOwner__c" : attributes.uriParams.Id,
+	"FinServ__JointOwner__c" : attributes.uriParams.Id
+	
+	}]]]></salesforce:parameters>
+		</salesforce:query>
+		<ee:transform doc:name="to json" doc:id="6f1137ff-3a9b-46f4-8854-29fe61ce9a75" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json skipNullOn = "everywhere"
+---
+payload map(payload,payload01)->
+{
+	"id" : payload.Id,	
+	"accountId":payload.FinServ__FinancialAccount__c,
+    "recordTypeId" : payload.RecordTypeId,
+    "ownerType":payload.FinServ__OwnerType__c,
+    "ownerId":payload.OwnerId,
+    "sourceSystemId":payload.FinServ__SourceSystemId__c,
+	"assetName" : payload.Name ,
+    "recordType" : payload.RecordType.Name,
+	"assetType": payload.FinServ__AssetsAndLiabilitiesType__c,
+	"description":payload.FinServ__Description__c,
+	"primaryOwner": payload.FinServ__PrimaryOwner__r.Name,
+    "primaryOwnerId": payload.FinServ__PrimaryOwner__c,
+	"jointOwner" : payload.FinServ__JointOwner__r.Name,
+	"jointOwnerId": payload.FinServ__JointOwner__c,
+	"household": payload.FinServ__Household__r.Name,
+	"houseHoldId": payload.FinServ__Household__c,
+	"amount": payload.FinServ__Amount__c,
+	"ownership":payload.FinServ__Ownership__c,
+	"lastModifieddate":payload.LastModifiedDate,
+	"lastreferencedDate":payload.LastReferencedDate,
+	"lastViewedDate":payload.LastViewedDate,
+		}
+]]></ee:set-payload>
+			</ee:message>
+			<ee:variables />
+		</ee:transform>
+		<logger level="INFO" doc:name="End" doc:id="70ff10c3-fbef-40c6-995b-43048ae0fe11" message="End Logger" />
+	</flow>
+	<flow name="njc_wma_retrieveliabilityFlow" doc:id="49fbe303-ebcb-4e51-a530-e5c078f2940c" >
+		<logger level="INFO" doc:name="Start " doc:id="a1f8a292-300b-443d-abd5-33fcc1c22af8" message="Initial Logger" />
+		<salesforce:query doc:name="Query to retrieve liabilities" doc:id="1ecc147a-a860-4873-af90-05fb852236ec" config-ref="Salesforce_Config" >
+			<salesforce:salesforce-query ><![CDATA[SELECT FinServ__PrimaryOwner__r.Name,FinServ__FinancialAccount__c,FinServ__PrimaryOwner__c,RecordTypeId,RecordType.Name,FinServ__Household__r.Name,FinServ__Household__c,FinServ__JointOwner__c,FinServ__JointOwner__r.Name,FinServ__AssetsandLiabilitiesType__c,FinServ__Ownership__c,FinServ__Amount__c,Name,Id,FinServ__Description__c,FinServ__OwnerType__c,FinServ__SourceSystemId__c,LastModifiedDate,LastReferencedDate,LastViewedDate,OwnerId FROM FinServ__AssetsAndLiabilities__c Where (FinServ__PrimaryOwner__c=':FinServ__PrimaryOwner__c' or FinServ__JointOwner__c=':FinServ__JointOwner__c') and RecordType.Name='Liability' ]]></salesforce:salesforce-query>
+			<salesforce:parameters ><![CDATA[#[output application/java
+---
+{
+	"FinServ__PrimaryOwner__c" : attributes.uriParams.Id,
+	"FinServ__JointOwner__c": attributes.uriParams.Id
+	
+	}]]]></salesforce:parameters>
+		</salesforce:query>
+		<ee:transform doc:name="to json" doc:id="a201b338-e0db-43ed-90e7-09f6f73dc2f4" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json skipNullOn="everywhere"
+---
+
+payload map(payload,payload01)->
+{
+	"id" : payload.Id,	
+	"accountId":payload.FinServ__FinancialAccount__c,
+    "recordTypeId" : payload.RecordTypeId,
+    "ownerType":payload.FinServ__OwnerType__c,
+    "ownerId":payload.OwnerId,
+    "sourceSystemId":payload.FinServ__SourceSystemId__c,
+	"assetName" : payload.Name ,
+    "recordType" : payload.RecordType.Name,
+	"assetType": payload.FinServ__AssetsAndLiabilitiesType__c,
+	"description":payload.FinServ__Description__c,
+	"primaryOwner": payload.FinServ__PrimaryOwner__r.Name,
+    "primaryOwnerId": payload.FinServ__PrimaryOwner__c,
+	"jointOwner" : payload.FinServ__JointOwner__r.Name,
+	"jointOwnerId": payload.FinServ__JointOwner__c,
+	"household": payload.FinServ__Household__r.Name,
+	"houseHoldId": payload.FinServ__Household__c,
+	"amount": payload.FinServ__Amount__c,
+	"ownership":payload.FinServ__Ownership__c,
+	"lastModifieddate":payload.LastModifiedDate,
+	"lastreferencedDate":payload.LastReferencedDate,
+	"lastViewedDate":payload.LastViewedDate,
+		}
+]]></ee:set-payload>
+			</ee:message>
+			<ee:variables >
+				<ee:set-variable variableName="a" ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<logger level="INFO" doc:name="End" doc:id="59729fa4-dc93-491c-bebc-f03fca5aad06" message="End Logger" />
+	</flow>
+</mule>

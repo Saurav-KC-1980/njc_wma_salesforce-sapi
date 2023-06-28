@@ -1,0 +1,58 @@
+#%RAML 1.0
+title: NJC-WMA-Salesforce-Sapi
+
+
+/client/{Id}:
+  get:
+    description: "Endpoint to retrieve client details based on client id"
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/response/retrieveclient_example.json
+
+    
+/account/{Id}:
+  put:
+    description: "Endpoint to update custom field in account object"
+    body:
+      application/json:
+        type: array
+        example: 
+                  [{
+           "Account_Added_to_DB__c" : "Carson"
+                  }]
+    responses:
+      202:
+        body:
+          application/json:
+            type: object
+            example: {"Message" : "Custom field data updated successfully"}
+
+/income/{clientId}:
+  get:
+    description: Fetch all Income of a client
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include /examples/response/income_example.json
+
+/asset/{Id}:
+  get:
+    description: "Endpoint to retrieve asset details"
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/response/assetexample.json
+
+/liability/{Id}:
+   get:
+    description: "Endpoint to retrieve liability details"
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/response/liabilityexample.json
+

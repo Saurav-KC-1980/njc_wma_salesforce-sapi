@@ -1,0 +1,44 @@
+[
+    {
+      "Id": "12IA567886",
+      "planName": "Mutual Fund Investment",
+      "product": "Proyfolio Bond",
+      "primaryOwnerName": "Rachel Adams",
+      "primaryOwnerId":"123TY5678",
+      "jointOwnerName": "Neil Symonds",
+      "jointOwnerId":"",
+      "amount":"9000000",
+      "frequency": "",
+      "currency": ""
+
+    },
+     
+     { "Id": "12IAr567886",
+      "planName": "Investment Account",
+      "product": "Lifetime ISA – Stocks and Shares",
+      "primaryOwnerName": "Rachel Adams",
+      "primaryOwnerId":"123TY5678",
+      "jointOwnerName": "",
+       "jointOwnerId":"",
+      "amount":"9000000",
+      "frequency": "",
+      "currency": ""
+
+
+    },
+
+     {
+       "Id": "12IAr567886",
+      "planName": "Bank of BAS Checking Account",
+      "product": "Banking",
+      "primaryOwnerName": "Rachel Adams",
+       "primaryOwnerId":"123TY5678",
+      "jointOwnerName": "",
+       "jointOwnerId":"",
+      "amount":"9000000",
+      "frequency": "",
+      "currency": ""
+
+
+    }
+]

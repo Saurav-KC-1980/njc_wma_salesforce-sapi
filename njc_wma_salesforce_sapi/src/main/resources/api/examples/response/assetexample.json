@@ -1,0 +1,62 @@
+[
+    {
+            "assetName": "Adams' House",
+            "assetType": "Real Estate",
+            "recordType": "Asset",
+            "recordTypeId": "0125i000001pSFpAAM",
+            "id": "a025i00000Nz6VTAAZ",
+            "primaryOwner": "Rachel Adams",
+            "primaryOwnerId": "0015i00000nflgqAAA",
+            "jointOwner": "Nigel Adams (Sample)",
+            "jointOwnerId": "0015i00000nflgoAAA",
+            "household": "Adams Household",
+            "houseHoldId": "0015i00000nflgdAAA",
+            "amount": "1000000.0",
+            "description": "Mortgage Loan",
+            "ownership": "Joint",
+            "ownerType": "0015i00000nflgqAAA",
+            "ownerId": "0055i00000B0wQSAAZ",
+            "lastModifieddate": "2023-06-22T17:03:58.000Z",
+            "lastreferencedDate": "2023-06-22T20:27:33.000Z",
+            "lastViewedDate": "2023-06-22T20:27:33.000Z"
+        },
+  
+    {
+            "assetName": "Rachel_Jewelry",
+            "assetType": "Jewelry",
+            "recordType": "Asset",
+            "recordTypeId": "0125i000001pSFpAAM",
+            "id": "a025i00000Pc7UgAAJ",
+            "primaryOwner": "Rachel Adams",
+            "primaryOwnerId": "0015i00000nflgqAAA",
+            "household": "Adams Household",
+            "houseHoldId": "0015i00000nflgdAAA",
+            "amount": "100000.0",
+            "ownership": "Individual",
+            "ownerType": "0015i00000nflgqAAA",
+            "ownerId": "0055i00000B0wQSAAZ",
+            "lastModifieddate": "2023-06-22T17:28:20.000Z",
+            "lastreferencedDate": "2023-06-22T18:08:21.000Z",
+            "lastViewedDate": "2023-06-22T18:08:21.000Z"
+        },
+    
+    {
+            "assetName": "BMW Car",
+            "assetType": "Automobile",
+            "recordType": "Asset",
+            "recordTypeId": "0125i000001pSFpAAM",
+            "id": "a025i00000Pc7UuAAJ",
+            "primaryOwner": "Rachel Adams",
+            "primaryOwnerId": "0015i00000nflgqAAA",
+            "household": "Adams Household",
+            "houseHoldId": "0015i00000nflgdAAA",
+            "amount": "500000.0",
+            "ownership": "Individual",
+            "ownerType": "0015i00000nflgqAAA",
+            "ownerId": "0055i00000B0wQSAAZ",
+            "lastModifieddate": "2023-06-22T17:29:36.000Z",
+            "lastreferencedDate": "2023-06-23T08:28:49.000Z",
+            "lastViewedDate": "2023-06-23T08:28:49.000Z"
+        }
+    
+]
